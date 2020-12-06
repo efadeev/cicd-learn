@@ -4,3 +4,4 @@ WORKDIR /usr/bin
 COPY hello.py  .
 ENTRYPOINT [ "python" ]
 CMD [ "hello.py" ]
+EXPOSE 5000/tcp
