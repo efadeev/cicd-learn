@@ -26,7 +26,7 @@ pipeline {
         stage("Removing image from node") {
             steps {
                 sh "docker rmi $imageName:$BUILD_NUMBER"
-                sh "docker rmi $imageName:latest"
+                //sh "docker rmi $imageName:latest"
             }
         }
     }
