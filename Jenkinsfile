@@ -16,9 +16,10 @@ pipeline {
         stage("Pushing image to Docker Hub") {
             steps {
                 script {
-                    docker.withRegistry("", dockerHubCredentials)
-                    dockerImage.push("$BUILD_NUMBER")
-                    dockerImage.push("latest")
+                    docker.withRegistry("", dockerHubCredentials) {
+                        dockerImage.push("$BUILD_NUMBER")
+                        dockerImage.push("latest")
+                    }
                 }
             }
         }
