@@ -9,7 +9,7 @@ resource "aws_instance" "my_docker" {
 }
 
 resource "aws_security_group" "my_docker" {
-  name        = "Docker Server Security Group"
+  name        = "docker_sec_group"
   description = "Docker Server Security Group"
 
   ingress {
