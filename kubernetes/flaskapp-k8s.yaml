@@ -15,8 +15,8 @@ spec:
         app: flaskapp
     spec:
       containers:
-        - image: fadeeves/flaskapp
-          name: flaskapp
+      - image: fadeeves/flaskapp
+        name: flaskapp
 ---
 apiVersion: v1
 kind: Service
@@ -26,9 +26,24 @@ metadata:
   name: flaskapp
 spec:
   ports:
-    - port: 5000
-      protocol: TCP
-      targetPort: 5000
+  - port: 5000
+    protocol: TCP
+    targetPort: 5000
   selector:
     app: flaskapp
-  type: LoadBalancer
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: flaskapp
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          service:
+            name: flaskapp
+            port:
+              number: 5000
+        path: /
+        pathType: Prefix
