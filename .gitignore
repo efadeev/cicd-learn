@@ -1,0 +1,3 @@
+docker-instance-aws/.terraform/*
+terraform.tfstate*
+.terraform*
