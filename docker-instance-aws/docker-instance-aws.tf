@@ -5,7 +5,7 @@ resource "aws_instance" "my_docker" {
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.my_docker.id]
   user_data              = file("docker-install.sh")
-  #key_name               = "keypair"
+  #key_name              = "keypair"
 }
 
 resource "aws_security_group" "my_docker" {
